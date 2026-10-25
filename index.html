@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#152f65">
+<meta name="description" content="Колесо Квантастики — игровое колесо фортуны для команды продаж.">
+<meta property="og:title" content="Колесо Квантастики">
+<meta property="og:description" content="Проверь удачу и крути колесо!">
+<title>Колесо Квантастики — денежный движ</title>
+<style>
+:root{--navy:#152f65;--blue:#2468c9;--cyan:#65d7e8;--ink:#17243b;--muted:#68758b;--paper:#f4f7fc;--white:#fff;--gold:#f7c95c;--line:#e2e9f3;--shadow:0 18px 55px rgba(24,53,99,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;color:var(--navy)}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,var(--blue),var(--navy));color:#fff;font-size:21px;box-shadow:0 7px 18px #2468c933}
+.nav-links{display:flex;gap:25px;color:#52617a;font-size:14px;font-weight:650}.nav-links a:hover{color:var(--blue)}.nav-cta{background:var(--navy);color:white;border:0;border-radius:12px;padding:11px 16px;font-weight:750}
+.menu-btn{display:none;background:white;border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--navy)}
+main{overflow:hidden}.hero{position:relative;background:radial-gradient(ellipse at 80% 15%,#d7f5ff 0,transparent 35%),linear-gradient(135deg,#edf5ff,#fff 55%,#eaf7ff);padding:65px 22px 48px}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e2f6fb;border:1px solid #c6edf5;border-radius:999px;padding:8px 12px;color:#176b8b;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.pulse{width:7px;height:7px;border-radius:50%;background:#20b8a5;box-shadow:0 0 0 4px #20b8a51e}
+h1{font-size:clamp(40px,5vw,68px);line-height:.99;letter-spacing:-.06em;color:var(--navy);margin:20px 0 18px;max-width:650px}h1 span{color:var(--blue)}.hero-copy{font-size:18px;line-height:1.65;color:#53627b;max-width:550px;margin:0 0 27px}.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.primary{border:0;border-radius:14px;background:linear-gradient(135deg,#2675df,#17499c);color:white;padding:15px 22px;font-weight:800;box-shadow:0 12px 24px #2468c933;transition:transform .2s,box-shadow .2s}.primary:hover{transform:translateY(-2px);box-shadow:0 15px 30px #2468c944}.secondary{padding:14px 18px;border:1px solid #d5dfed;border-radius:14px;background:white;color:var(--navy);font-weight:750}.hero-note{font-size:12px;color:#758198;margin-top:16px}
+.hero-art{min-height:380px;display:grid;place-items:center;position:relative}.orbit{width:min(100%,410px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0 47%,#dceafa 48% 49%,#eef5ff 50% 62%,#d3e6ff 63% 64%,transparent 65%);position:relative}.orbit:before,.orbit:after{content:"";position:absolute;border:1px dashed #9bbbe5;border-radius:50%;inset:6%}.orbit:after{inset:15%;border-style:solid;opacity:.5}.coin{position:absolute;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-size:34px;font-weight:900;color:#845a09;background:radial-gradient(circle at 32% 25%,#fff4bd,#f7c95c 55%,#d99c27);border:5px solid #ffeb9e;box-shadow:0 12px 25px #8b681c2b;z-index:1}.coin.one{top:12%;left:17%;transform:rotate(-12deg)}.coin.two{right:10%;top:27%;transform:rotate(13deg)}.coin.three{bottom:12%;left:22%;transform:rotate(8deg)}.wheel-mini{width:205px;height:205px;border-radius:50%;background:conic-gradient(#1c4e9e 0 45deg,#f7c95c 45deg 90deg,#2d8fce 90deg 135deg,#65d7e8 135deg 180deg,#2468c9 180deg 225deg,#f7c95c 225deg 270deg,#1c4e9e 270deg 315deg,#65d7e8 315deg);border:9px solid white;box-shadow:0 14px 35px #173a7025;display:grid;place-items:center;animation:float 5s ease-in-out infinite}.wheel-mini span{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:white;color:var(--navy);font-size:25px;box-shadow:0 3px 12px #102e6025}@keyframes float{50%{transform:translateY(-8px) rotate(8deg)}}.spark{position:absolute;color:#efa92c;font-size:28px}.spark.s1{top:10%;right:19%}.spark.s2{bottom:13%;right:13%;font-size:19px}.spark.s3{top:48%;left:3%;font-size:20px}
+.section{max-width:1180px;margin:auto;padding:68px 22px}.section-head{text-align:center;max-width:700px;margin:0 auto 34px}.kicker{color:var(--blue);font-size:12px;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.section h2{font-size:clamp(29px,3vw,42px);letter-spacing:-.045em;color:var(--navy);margin:10px 0 12px}.section-head p{color:var(--muted);line-height:1.65;margin:0}
+.game-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:24px;align-items:stretch}.panel{background:white;border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);padding:26px}.wheel-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}.wheel-wrap{position:relative;width:min(100%,450px);aspect-ratio:1;margin:4px auto 18px}.pointer{position:absolute;z-index:3;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-top:38px solid #f2b82e;filter:drop-shadow(0 3px 3px #243b5c33)}#wheel{width:100%;height:100%;display:block;filter:drop-shadow(0 13px 20px #203b641c)}.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border:7px solid white;border-radius:50%;background:var(--navy);color:white;display:grid;place-items:center;font-size:21px;font-weight:900;box-shadow:0 4px 18px #142f6533;pointer-events:none}.wheel-caption{font-size:13px;color:var(--muted);text-align:center;line-height:1.5}
+.form-panel h3{margin:0 0 7px;font-size:23px;color:var(--navy);letter-spacing:-.03em}.form-panel .sub{color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 24px}.field-label{display:block;font-size:13px;font-weight:800;color:#34435d;margin:17px 0 8px}.text-input{width:100%;border:1px solid #d8e1ee;border-radius:13px;padding:14px 15px;background:#fbfcff;color:var(--ink);outline:none;transition:border .2s,box-shadow .2s}.text-input:focus{border-color:#4e8de1;box-shadow:0 0 0 4px #2468c91c}.text-input::placeholder{color:#9aa6b8}.hint{font-size:12px;color:#8290a5;line-height:1.5;margin-top:8px}.spin-btn{width:100%;margin-top:22px;padding:16px;border-radius:14px;font-size:16px}.spin-btn:disabled{opacity:.55;cursor:not-allowed;box-shadow:none;transform:none}.status{display:none;margin-top:15px;border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5}.status.show{display:block}.status.error{background:#fff0ef;color:#a52c2c;border:1px solid #ffd5d1}.status.success{background:#eafaf2;color:#176a42;border:1px solid #c7efd9}.status.info{background:#eef5ff;color:#244d87;border:1px solid #d7e6ff}.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:24px}.rule{background:white;border:1px solid var(--line);border-radius:18px;padding:18px}.rule-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#eaf3ff;color:var(--blue);font-size:19px;margin-bottom:13px}.rule b{display:block;color:var(--navy);margin-bottom:6px}.rule p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+.prizes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.prize{background:white;border:1px solid var(--line);border-radius:17px;padding:18px 10px;text-align:center}.prize .amount{font-weight:900;color:var(--navy);font-size:clamp(17px,2vw,24px);letter-spacing:-.04em}.prize .chance{display:inline-block;margin-top:8px;background:#edf4ff;color:#41628d;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}.prize p{font-size:12px;color:var(--muted);margin:8px 0 0}
+.results-section{background:linear-gradient(180deg,#eef5ff,#f7f9fd);border-top:1px solid #e0eaf7}.results-toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}.results-toolbar h3{font-size:22px;color:var(--navy);margin:0}.result-count{font-size:13px;color:var(--muted)}.results-tools{display:flex;gap:9px;flex-wrap:wrap}.small-input{border:1px solid #d8e1ee;border-radius:10px;padding:10px 12px;background:white;min-width:180px;outline:none}.clear-btn{border:1px solid #d8e1ee;background:white;color:#56657c;border-radius:10px;padding:10px 13px;font-weight:700;font-size:12px}.leaderboard{display:grid;gap:10px}.result-row{display:grid;grid-template-columns:46px minmax(0,1fr) auto auto;gap:14px;align-items:center;background:white;border:1px solid var(--line);border-radius:16px;padding:14px 17px}.rank{width:38px;height:38px;border-radius:12px;background:#edf2f9;display:grid;place-items:center;color:#52627b;font-weight:900}.result-name{font-weight:800;color:var(--navy);overflow-wrap:anywhere}.result-date{font-size:12px;color:#8a97aa;margin-top:4px}.result-prize{font-size:19px;font-weight:900;white-space:nowrap;color:#2468c9}.result-tag{font-size:11px;font-weight:850;letter-spacing:.04em;background:#edf4ff;color:#3b639c;padding:6px 8px;border-radius:8px}.result-row.top-1{background:linear-gradient(100deg,#fff8dc,#fff 70%);border-color:#e8c45d;box-shadow:0 8px 22px #b78a1b17}.result-row.top-1 .rank{background:linear-gradient(135deg,#ffdf75,#c99118);color:#563b00}.result-row.top-1 .result-prize{color:#a66b00}.result-row.top-2{border-color:#c7d4e7;background:linear-gradient(100deg,#f1f5fb,#fff 70%)}.result-row.top-2 .rank{background:linear-gradient(135deg,#e5edf7,#9db2cc);color:#334b69}.result-row.top-3{border-color:#e6c5ad;background:linear-gradient(100deg,#fff0e5,#fff 70%)}.result-row.top-3 .rank{background:linear-gradient(135deg,#efc09d,#b8754b);color:#fff}.empty{background:white;border:1px dashed #cbd8e9;border-radius:18px;padding:34px;text-align:center;color:var(--muted);line-height:1.6}.empty-icon{font-size:30px;margin-bottom:8px}.foot{padding:25px 22px;text-align:center;color:#8995a8;font-size:12px}.modal-backdrop{position:fixed;inset:0;background:#0b1c36a8;z-index:30;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}.modal-backdrop.show{display:flex}.modal{background:white;border-radius:24px;padding:30px;max-width:430px;width:100%;text-align:center;box-shadow:0 25px 90px #06142f55;animation:pop .25s ease-out}.modal-icon{width:65px;height:65px;margin:0 auto 16px;border-radius:20px;background:#eaf3ff;display:grid;place-items:center;font-size:30px}.modal h3{font-size:25px;color:var(--navy);margin:0 0 9px}.modal p{color:var(--muted);line-height:1.6;margin:0 0 22px}.modal .primary{width:100%}.modal.prize-modal .modal-icon{background:#fff2c7}.modal-prize{font-size:38px;font-weight:950;color:#bd8412;letter-spacing:-.05em;margin:4px 0 15px}@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr;gap:5px}.hero{padding-top:45px}.hero-art{min-height:280px}.orbit{width:300px}.coin{width:65px;height:65px;font-size:25px}.wheel-mini{width:160px;height:160px}.game-layout{grid-template-columns:1fr}.wheel-wrap{width:min(100%,390px)}.prizes{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.nav{padding:12px 16px}.nav-links{display:none;position:absolute;left:12px;right:12px;top:65px;padding:16px;background:white;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);flex-direction:column;gap:16px}.nav-links.open{display:flex}.nav-cta{display:none}.menu-btn{display:block}.hero{padding:37px 18px 25px}.hero-inner{gap:0}h1{font-size:44px}.hero-copy{font-size:16px}.hero-art{min-height:260px}.orbit{width:270px}.section{padding:48px 16px}.panel{padding:18px;border-radius:20px}.rules{grid-template-columns:1fr}.rule{display:grid;grid-template-columns:42px 1fr;column-gap:12px}.rule-icon{grid-row:span 2;margin:0}.prizes{grid-template-columns:repeat(2,1fr)}.prize:last-child{grid-column:span 2}.result-row{grid-template-columns:38px minmax(0,1fr) auto;gap:10px;padding:12px}.result-row .result-tag{display:none}.rank{width:34px;height:34px}.result-prize{font-size:16px}.results-toolbar{align-items:flex-start}.results-tools{width:100%}.small-input{flex:1;min-width:0;width:100%}.wheel-center{width:60px;height:60px}.pointer{border-left-width:14px;border-right-width:14px;border-top-width:30px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Главная навигация">
+    <a class="brand" href="#home" aria-label="Колесо Квантастики — на главную"><span class="brand-mark">✦</span><span>КОЛЕСО<br>КВАНТАСТИКИ</span></a>
+    <div class="nav-links" id="navLinks"><a href="#about">Как играть</a><a href="#wheel-game">Колесо</a><a href="#prizes">Призы</a><a href="#results">Результаты</a></div>
+    <button class="nav-cta" onclick="document.querySelector('#wheel-game').scrollIntoView({behavior:'smooth'})">Крутить колесо ↗</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
+  </nav>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="hero-inner">
+  <div>
+   <div class="eyebrow"><span class="pulse"></span> ИГРА ДЛЯ КОМАНДЫ ПРОДАЖ</div>
+   <h1>Твой ход.<br>Твоя удача.<br><span>Твои деньги.</span></h1>
+   <p class="hero-copy">Добро пожаловать в «Колесо Квантастики» — здесь каждый код может превратиться в приятный денежный бонус. Введи свой код и узнай, что приготовила удача.</p>
+   <div class="hero-actions"><button class="primary" onclick="document.querySelector('#wheel-game').scrollIntoView({behavior:'smooth'})">Испытать удачу <span aria-hidden="true">↗</span></button><a class="secondary" href="#about">Как это работает</a></div>
+   <p class="hero-note">Один код = одна попытка. Использованные коды повторно не принимаются.</p>
+  </div>
+  <div class="hero-art" aria-hidden="true"><div class="orbit"><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><div class="coin one">₽</div><div class="coin two">₽</div><div class="coin three">₽</div><div class="wheel-mini"><span>₽</span></div></div></div>
+ </div>
+</section>
+<section class="section" id="about">
+ <div class="section-head"><div class="kicker">Всё просто</div><h2>Три шага до денежного момента</h2><p>Никаких сложных правил: твой персональный код, один спин и результат в таблице.</p></div>
+ <div class="rules">
+  <article class="rule"><div class="rule-icon">⌁</div><b>01. Введи код</b><p>Используй свой уникальный шестисимвольный код. Каждый код работает только один раз.</p></article>
+  <article class="rule"><div class="rule-icon">◎</div><b>02. Назови себя</b><p>После проверки кода укажи фамилию и имя, чтобы результат попал в таблицу участников.</p></article>
+  <article class="rule"><div class="rule-icon">✦</div><b>03. Крути колесо</b><p>Дождись остановки колеса — сумма выигрыша автоматически появится в результатах.</p></article>
+ </div>
+</section>
+<section class="section" id="wheel-game" style="padding-top:12px">
+ <div class="section-head"><div class="kicker">Твой момент</div><h2>Колесо фортуны</h2><p>Введи код и приготовься к своему денежному моменту.</p></div>
+ <div class="game-layout">
+  <div class="panel wheel-panel">
+   <div class="wheel-wrap"><div class="pointer"></div><canvas id="wheel" width="800" height="800" role="img" aria-label="Колесо фортуны с денежными призами"></canvas><div class="wheel-center">₽</div></div>
+   <div class="wheel-caption">Колесо остановится случайным образом.<br>Удачи — пусть продажи будут мощными!</div>
+  </div>
+  <div class="panel form-panel">
+   <h3>Забери свой шанс</h3><p class="sub">Сначала проверь код. После проверки появится поле для фамилии и имени, а затем можно будет запустить колесо.</p>
+   <label class="field-label" for="codeInput">Твой уникальный код</label>
+   <input class="text-input" id="codeInput" autocomplete="off" maxlength="6" placeholder="Например, A7K9Q2" aria-describedby="codeHint">
+   <div class="hint" id="codeHint">Код состоит из 6 латинских букв или цифр.</div>
+   <button class="primary spin-btn" id="verifyBtn">Проверить код</button>
+   <div id="nameBlock" hidden>
+    <label class="field-label" for="nameInput">Фамилия и имя участника</label>
+    <input class="text-input" id="nameInput" autocomplete="name" maxlength="120" placeholder="Иванов Иван Иванович">
+    <div class="hint">Укажи фамилию и имя — они появятся в таблице результатов.</div>
+    <button class="primary spin-btn" id="spinBtn" disabled>Крутить колесо</button>
+   </div>
+   <div id="status" class="status" role="status" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+<section class="section" id="prizes" style="padding-top:8px">
+ <div class="section-head"><div class="kicker">Призовой фонд</div><h2>Что может выпасть?</h2><p>Каждый спин — отдельная история. Суммы показаны прямо на секторах колеса.</p></div>
+ <div class="prizes">
+  <div class="prize"><div class="amount">0 ₽</div><span class="chance">10%</span><p>Не в этот раз</p></div>
+  <div class="prize"><div class="amount">500 ₽</div><span class="chance">45%</span><p>Приятный бонус</p></div>
+  <div class="prize"><div class="amount">1 000 ₽</div><span class="chance">25%</span><p>Уже неплохо!</p></div>
+  <div class="prize"><div class="amount">2 000 ₽</div><span class="chance">10%</span><p>Красиво идёшь</p></div>
+  <div class="prize"><div class="amount">4 000 ₽</div><span class="chance">5%</span><p>Уровень легенды</p></div>
+ </div>
+ <p class="hint" style="text-align:center;margin-top:14px">Вероятности призов суммарно составляют 100%.</p>
+</section>
+<section class="results-section" id="results">
+ <div class="section" style="padding-bottom:60px">
+  <div class="section-head"><div class="kicker">Зал славы</div><h2>Результаты розыгрыша</h2><p>Все успешные попытки — в одном месте. Чем выше сумма, тем выше строчка в таблице.</p></div>
+  <div class="results-toolbar"><div><h3>Таблица победителей</h3><div class="result-count" id="resultCount">Пока нет результатов</div></div><div class="results-tools"><input class="small-input" id="searchInput" placeholder="Найти по фамилии или имени…" aria-label="Поиск по фамилии или имени"><button class="clear-btn" id="exportBtn">Экспорт CSV</button></div></div>
+  <div class="leaderboard" id="leaderboard"><div class="empty"><div class="empty-icon">🏆</div><b>Здесь появятся победители</b><br>Стань первым, кто крутанёт колесо!</div></div>
+  <p class="hint" style="margin-top:14px">Демо-режим: результаты сохраняются в этом браузере. Для общей таблицы всех сотрудников нужен сервер и база данных.</p>
+ </div>
+</section>
+</main>
+<footer class="foot">© Колесо Квантастики · Играй честно, продавай красиво ✦</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal" id="modalCard"><div class="modal-icon" id="modalIcon">✦</div><h3 id="modalTitle">Сообщение</h3><div id="modalPrize" class="modal-prize" hidden></div><p id="modalText"></p><button class="primary" id="modalClose">Понятно</button></div>
+</div>
+<script>
+/* DEMO: в production коды должны проверяться на сервере, а не в браузере. */
+const VALID_CODES = new Set(["03WJGB", "161QND", "1QYQIX", "1SHGUL", "4EZ3HJ", "4N1MI4", "4VE7GO", "4VZW73", "5ATR0V", "60EQOR", "62VYI0", "7835ZN", "7OAFKO", "7PQNLC", "7S4TK0", "7XWLGU", "8210L8", "8FUNN1", "8QQGTK", "8RNE6J", "8ZY62A", "91YKY6", "9L8VDU", "9ZT89A", "A2CM1M", "AOZYZW", "BFWJ5H", "BR5SB0", "CUGNSP", "D6FPOK", "DF18KO", "DIM607", "DP1V6P", "E2134F", "EBYL4M", "EOCDHK", "F73F1S", "FAN1VF", "FF56P2", "FNXEYN", "FRJ126", "FZ143X", "G5BMXV", "GPTEFK", "GW2A5T", "H4TGOL", "I8COT5", "ICCQPN", "IYTN8W", "JT46DC", "JTI8EL", "KOYV6Y", "KWLX1Y", "L1A49C", "LB7Y9K", "LDR4AL", "LV2PE4", "LYAUI1", "M1PMHL", "M4SAH0", "ME2UOP", "MHJFUR", "MLJ6LZ", "MXBXP1", "N1L7Z5", "N871RI", "NALM4M", "NK6U9O", "NRL7E2", "O3ZJY5", "PB529Q", "QR1VQZ", "QRBZTQ", "QSWB45", "QYN8WJ", "RWKHB8", "SL0EW7", "SMTT0X", "SZIB5P", "U5XKWQ", "UA9ZMF", "UEE1PW", "VAP0N6", "VAY6SK", "VF97YO", "W2R7QT", "W33FYH", "WOGV5T", "X20VVY", "XBDFP1", "XFABTC", "XIHLMN", "XTKWWM", "XY6HRF", "YJG2QU", "YS8D58", "YZ5WHR", "Z9S691", "ZOH5KY", "ZWLJV1"]);
+const STORAGE_USED = 'kvantastica-wheel-used-v1';
+const STORAGE_RESULTS = 'kvantastica-wheel-results-v1';
+const sectors = [
+ {label:'500 ₽',amount:500,weight:45,color:'#2468c9',text:'#ffffff'},
+ {label:'1 000 ₽',amount:1000,weight:25,color:'#65d7e8',text:'#14365f'},
+ {label:'2 000 ₽',amount:2000,weight:10,color:'#f7c95c',text:'#563c00'},
+ {label:'4 000 ₽',amount:4000,weight:5,color:'#17427f',text:'#ffffff'},
+ {label:'0 ₽',amount:0,weight:15,color:'#e8eef8',text:'#344761'}
+];
+const $=id=>document.getElementById(id);
+let usedCodes = loadJSON(STORAGE_USED, []);
+let results = loadJSON(STORAGE_RESULTS, []);
+let pendingCode = null, spinning = false, currentRotation = 0;
+const canvas=$('wheel'), ctx=canvas.getContext('2d');
+function loadJSON(key,fallback){try{const v=JSON.parse(localStorage.getItem(key));return Array.isArray(v)?v:fallback}catch{return fallback}}
+function saveState(){try{localStorage.setItem(STORAGE_USED,JSON.stringify(usedCodes));localStorage.setItem(STORAGE_RESULTS,JSON.stringify(results))}catch(e){showStatus('Не удалось сохранить данные в браузере. Попробуй другой браузер или включи локальное хранилище.','error')}}
+function drawWheel(rotation=0){
+ const w=canvas.width,cx=w/2,cy=w/2,r=w/2-18;ctx.clearRect(0,0,w,w);
+ let start=-Math.PI/2+rotation;const total=sectors.reduce((s,x)=>s+x.weight,0);
+ sectors.forEach((s)=>{
+  const angle=s.weight/total*Math.PI*2,end=start+angle;
+  ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,end);ctx.closePath();ctx.fillStyle=s.color;ctx.fill();
+  ctx.strokeStyle='#ffffff';ctx.lineWidth=7;ctx.stroke();
+  const mid=(start+end)/2;
+  ctx.save();
+  ctx.translate(cx+Math.cos(mid)*r*.66,cy+Math.sin(mid)*r*.66);
+  ctx.rotate(Math.PI/2);
+  ctx.fillStyle=s.text;
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.font='800 25px system-ui, sans-serif';
+  ctx.fillText(s.label,0,0);
+  ctx.restore();start=end;
+ });
+ ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='#fff';ctx.lineWidth=10;ctx.stroke();
+}
+drawWheel();
+function showStatus(message,type='info'){const el=$('status');el.textContent=message;el.className='status show '+type}
+function openModal(title,message,icon='✦',prize=null){$('modalTitle').textContent=title;$('modalText').textContent=message;$('modalIcon').textContent=icon;$('modalPrize').hidden=prize===null;$('modalPrize').textContent=prize===null?'':prize;$('modalCard').classList.toggle('prize-modal',prize!==null);$('modalBackdrop').classList.add('show');$('modalClose').focus()}
+function closeModal(){$('modalBackdrop').classList.remove('show')}
+$('modalClose').addEventListener('click',closeModal);
+$('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('codeInput').addEventListener('input',()=>{$('codeInput').value=$('codeInput').value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);pendingCode=null;$('nameBlock').hidden=true;$('verifyBtn').disabled=false});
+$('verifyBtn').addEventListener('click',()=>{
+ const code=$('codeInput').value.trim().toUpperCase();
+ if(code.length!==6){showStatus('Введи код из 6 символов.','error');return}
+ if(usedCodes.includes(code)){showStatus('Самозапрет. Данный код уже использован','error');openModal('Самозапрет. Данный код уже использован','Этот код уже участвовал в розыгрыше. Повторная попытка невозможна.','⛔');return}
+ if(!VALID_CODES.has(code)){showStatus('Мошенник, я за тобой слежу!','error');openModal('Мошенник, я за тобой слежу!','Код не найден. Проверь символы и попробуй снова.','👀');return}
+ pendingCode=code;$('nameBlock').hidden=false;$('spinBtn').disabled=!$('nameInput').value.trim();$('nameInput').focus();showStatus('Код принят! Напиши фамилию и имя, чтобы продолжить.','success');
+});
+$('nameInput').addEventListener('input',()=>{$('spinBtn').disabled=!pendingCode||!$('nameInput').value.trim()||spinning});
+function choosePrize(){const total=sectors.reduce((s,x)=>s+x.weight,0);let n=Math.random()*total;for(const s of sectors){n-=s.weight;if(n<0)return s}return sectors[sectors.length-1]}
+function angleForPrize(prize){let start=-Math.PI/2;const total=sectors.reduce((s,x)=>s+x.weight,0);for(const s of sectors){const angle=s.weight/total*Math.PI*2;if(s===prize)return start+angle/2;start+=angle}return 0}
+$('spinBtn').addEventListener('click',()=>{
+ if(spinning||!pendingCode)return;
+ const name=$('nameInput').value.trim().replace(/\s+/g,' ');
+ if(name.split(/\s+/).length<2){showStatus('Введи фамилию и имя.','error');$('nameInput').focus();return}
+ spinning=true;$('spinBtn').disabled=true;$('verifyBtn').disabled=true;$('codeInput').disabled=true;
+ const prize=choosePrize();const currentAngle=((currentRotation%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+ const target=angleForPrize(prize);let delta=( -Math.PI/2-target-currentAngle)%(Math.PI*2);if(delta<0)delta+=Math.PI*2;
+ const totalRotation=Math.PI*2*(6+Math.floor(Math.random()*3))+delta;
+ const from=currentRotation,to=currentRotation+totalRotation,duration=5200,start=performance.now();
+ function animate(now){const p=Math.min(1,(now-start)/duration),ease=1-Math.pow(1-p,4);currentRotation=from+(to-from)*ease;drawWheel(currentRotation);if(p<1){requestAnimationFrame(animate)}else{
+  spinning=false;usedCodes.push(pendingCode);
+  const record={id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),name,amount:prize.amount,code:pendingCode,date:new Date().toISOString()};
+  results.push(record);saveState();renderResults();$('nameBlock').hidden=true;$('codeInput').value='';$('codeInput').disabled=false;$('verifyBtn').disabled=false;$('nameInput').value='';pendingCode=null;
+  showStatus('Результат зафиксирован. Спасибо за участие!','success');
+  const pretty=prize.amount.toLocaleString('ru-RU')+' ₽';openModal(prize.amount?'Поздравляем, '+name+'!':'В следующий раз повезёт!',prize.amount?'Твой результат зафиксирован в таблице.':'Сегодня без денежного приза — впереди новые возможности!',prize.amount?'💸':'🍀',pretty);
+ }}
+ requestAnimationFrame(animate);
+});
+function renderResults(){
+ const query=$('searchInput').value.trim().toLocaleLowerCase('ru');const sorted=[...results].sort((a,b)=>b.amount-a.amount||new Date(a.date)-new Date(b.date)).filter(r=>r.name.toLocaleLowerCase('ru').includes(query));
+ $('resultCount').textContent=results.length?`Всего попыток: ${results.length} · Призовой фонд: ${results.reduce((s,r)=>s+r.amount,0).toLocaleString('ru-RU')} ₽`:'Пока нет результатов';
+ const root=$('leaderboard');root.innerHTML='';
+ if(!sorted.length){root.innerHTML='<div class="empty"><div class="empty-icon">🏆</div><b>'+(results.length?'Ничего не найдено':'Здесь появятся победители')+'</b><br>'+(results.length?'Попробуй изменить поисковый запрос.':'Стань первым, кто крутанёт колесо!')+'</div>';return}
+ sorted.forEach((r,i)=>{const el=document.createElement('article');el.className='result-row'+(i<3?' top-'+(i+1):'');const rank=document.createElement('div');rank.className='rank';rank.textContent=i===0?'👑':i===1?'🥈':i===2?'🥉':String(i+1);const info=document.createElement('div');const name=document.createElement('div');name.className='result-name';name.textContent=r.name;const date=document.createElement('div');date.className='result-date';date.textContent=new Date(r.date).toLocaleString('ru-RU',{dateStyle:'medium',timeStyle:'short'});info.append(name,date);const prize=document.createElement('div');prize.className='result-prize';prize.textContent=r.amount.toLocaleString('ru-RU')+' ₽';const tag=document.createElement('div');tag.className='result-tag';tag.textContent=i===0?'ЛИДЕР':i===1?'ТОП-2':i===2?'ТОП-3':'УЧАСТНИК';el.append(rank,info,prize,tag);root.append(el)})
+}
+$('searchInput').addEventListener('input',renderResults);
+$('exportBtn').addEventListener('click',()=>{
+ const rows=[['Место','Фамилия и имя','Приз, ₽','Дата'],...([...results].sort((a,b)=>b.amount-a.amount||new Date(a.date)-new Date(b.date)).map((r,i)=>[i+1,r.name,r.amount,new Date(r.date).toLocaleString('ru-RU')]))];
+ const csv='\\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\\r\\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='rezultaty-kolesa-kvantastiki.csv';a.click();URL.revokeObjectURL(url)
+});
+$('menuBtn').addEventListener('click',()=>{const open=$('navLinks').classList.toggle('open');$('menuBtn').setAttribute('aria-expanded',String(open));$('menuBtn').textContent=open?'✕':'☰'});
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{$('navLinks').classList.remove('open');$('menuBtn').setAttribute('aria-expanded','false');$('menuBtn').textContent='☰'}));
+renderResults();
+</script>
+</body>
+</html>
